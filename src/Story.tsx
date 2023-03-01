@@ -23,6 +23,9 @@ export const Story = ({
   avatarSize,
   showAvatarText,
   avatarTextStyle,
+  customItemComponent,
+  horizontal,
+  resizeMode
 }: StoryProps) => {
   const [dataState, setDataState] = useState<IUserStory[]>(data);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -103,6 +106,7 @@ export const Story = ({
           swipeText={swipeText}
           customSwipeUpComponent={customSwipeUpComponent}
           customCloseComponent={customCloseComponent}
+          resizeMode={resizeMode}
           onClosePress={() => {
             setIsModalOpen(false);
             if (onClose) {
@@ -155,6 +159,8 @@ export const Story = ({
           pressedBorderColor={pressedBorderColor}
           showText={showAvatarText}
           textStyle={avatarTextStyle}
+          customItemComponent={customItemComponent}
+          horizontal={horizontal}
         />
       </View>
       <Modal

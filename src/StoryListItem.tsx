@@ -36,6 +36,7 @@ export const StoryListItem = ({
   onClosePress,
   stories,
   currentPage,
+  resizeMode = "contain",
   ...props
 }: StoryListItemProps) => {
   const [load, setLoad] = useState<boolean>(true);
@@ -196,6 +197,7 @@ export const StoryListItem = ({
             onLoadEnd={() => start()}
             source={{ uri: content[current].story_image }}
             style={styles.image}
+            resizeMode={resizeMode}
           />
           {load && (
             <View style={styles.spinnerContainer}>

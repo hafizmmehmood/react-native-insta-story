@@ -38,6 +38,9 @@ interface SharedCircleListProps {
 
 export interface StoryCircleListViewProps extends SharedCircleListProps {
   data: IUserStory[];
+  horizontal?: boolean;
+  /** A custom item component */
+  customItemComponent?: (item: IUserStory, index?: number, handleStoryItemPress?: (item: IUserStory) => void) => void;
 }
 
 export interface StoryCircleListItemProps extends SharedCircleListProps {
@@ -64,6 +67,7 @@ export interface StoryListItemProps {
   onClosePress: (props?: any) => any;
   stories: IUserStoryItem[];
   currentPage: number;
+  resizeMode?: string
 }
 
 export interface StoryProps {
@@ -85,12 +89,18 @@ export interface StoryProps {
   onStart?: (props?: IUserStory) => any;
   /** Text of the swipe up button */
   swipeText?: string;
+  /** Text of the swipe up button */
+  resizeMode?: string;
   /** A custom swipe up component */
   customSwipeUpComponent?: ReactNode;
   /** A custom close component */
   customCloseComponent?: ReactNode;
+  /** A custom item component */
+  customItemComponent?: (item: IUserStory, index?: number, handleStoryItemPress?: (item: IUserStory) => void) => void;
   /** Display username below avatars in FlatList */
   showAvatarText?: boolean;
+  /** Display FlatList orientation */
+  horizontal?: boolean;
   /** Username text style below the avatar */
   avatarTextStyle?: TextStyle;
 }

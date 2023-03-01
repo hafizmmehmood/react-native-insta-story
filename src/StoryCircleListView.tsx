@@ -11,18 +11,20 @@ const StoryCircleListView = ({
   avatarSize,
   showText,
   textStyle,
+  customItemComponent,
+  horizontal=true
 }: StoryCircleListViewProps) => {
   return (
-    <View>
       <FlatList
         keyExtractor={(_item, index) => index.toString()}
         data={data}
-        horizontal
+        horizontal={horizontal}
         style={{ paddingLeft: 12 }}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         ListFooterComponent={<View style={{ flex: 1, width: 8 }} />}
         renderItem={({ item, index }) => (
+          customItemComponent ? customItemComponent(item,index,handleStoryItemPress) :
           <StoryCircleListItem
             avatarSize={avatarSize}
             handleStoryItemPress={() =>
@@ -36,7 +38,6 @@ const StoryCircleListView = ({
           />
         )}
       />
-    </View>
   );
 };
 
